@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owin.Loader.Tests", "src\te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "src\test\Utils\Utils.csproj", "{0BF71599-B6C3-4825-9169-B809971A7ED7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owin.Extensions", "src\main\Owin.Extensions\Owin.Extensions.csproj", "{E7627D2D-B46B-4673-8068-ADF8D6AC267C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{0BF71599-B6C3-4825-9169-B809971A7ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BF71599-B6C3-4825-9169-B809971A7ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BF71599-B6C3-4825-9169-B809971A7ED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7627D2D-B46B-4673-8068-ADF8D6AC267C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7627D2D-B46B-4673-8068-ADF8D6AC267C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7627D2D-B46B-4673-8068-ADF8D6AC267C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7627D2D-B46B-4673-8068-ADF8D6AC267C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
