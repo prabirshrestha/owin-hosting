@@ -201,5 +201,10 @@ namespace Owin.Extensions
         {
             return wsEnv.GetEnvironmentValue<string>("websocket.Version");
         }
+
+        public static WebSocketSendAsync GetWebSocketSendAsync(this WsEnv wsEnv)
+        {
+            return wsEnv.GetEnvironmentValue<WebSocketSendAsync>("websocket.SendAsyncFunc");
+        }
     }
 }
