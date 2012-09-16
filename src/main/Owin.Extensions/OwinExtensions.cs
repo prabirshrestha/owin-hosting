@@ -216,5 +216,10 @@ namespace Owin.Extensions
         {
             return wsEnv.GetEnvironmentValue<WebSocketCloseAsync>("websocket.CloseAsyncFunc");
         }
+
+        public static CancellationToken GetWebSocketCallCancelled(this WsEnv wsEnv)
+        {
+            return wsEnv.GetEnvironmentValue<CancellationToken>("websocket.CallCancelled");
+        }
     }
 }
