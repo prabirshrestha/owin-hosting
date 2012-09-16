@@ -245,6 +245,20 @@ namespace Owin.Extensions
         {
             return wsEnv.SetEnvironmentValue("websocket.CallCancelled", cancellationToken);
         }
+
+        public static T Use<T>(this T app, Func<AppFunc, AppFunc> middleware)
+            where T : ICollection<Func<AppFunc, AppFunc>>
+        {
+            app.Add(middleware);
+            return app;
+        }
+
+        public static T Use<T>(this T app, Func<Env, bool> condition, Func<AppFunc, AppFunc> middleware)
+          where T : ICollection<Func<AppFunc, AppFunc>>
+        {
+            app.Add(next => env => condition(env) ? middleware(next)(env) : next(env));
+            return app;
+        }
     }
 
     namespace Stream
