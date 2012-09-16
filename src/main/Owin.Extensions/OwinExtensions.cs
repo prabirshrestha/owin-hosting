@@ -164,5 +164,12 @@ namespace Owin.Extensions
             headers[name] = new[] { value };
             return headers;
         }
+
+        public static Headers RemoveHeader(this Headers headers, string name)
+        {
+            if (headers.ContainsKey(name))
+                headers.Remove(name);
+            return headers;
+        }
     }
 }
