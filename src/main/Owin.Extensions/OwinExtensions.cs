@@ -35,5 +35,10 @@ namespace Owin.Extensions
             env[name] = value;
             return env;
         }
+
+        public static string GetRequestMethod(this Env env)
+        {
+            return env.GetEnvironmentValue<string>("owin.RequestMethod");
+        }
     }
 }
