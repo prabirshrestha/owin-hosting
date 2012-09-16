@@ -126,5 +126,10 @@ namespace Owin.Extensions
         {
             return env.SetEnvironmentValue("owin.RequestPathBase", pathBase);
         }
+
+        public static Env SetRequestPath(this Env env, string path)
+        {
+            return env.SetEnvironmentValue("owin.RequestPath", path);
+        }
     }
 }
