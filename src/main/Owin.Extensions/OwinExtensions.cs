@@ -77,5 +77,10 @@ namespace Owin.Extensions
         {
             return env.GetEnvironmentValue<Headers>("owin.RequestHeaders");
         }
+
+        public static Headers GetResponseHeaders(this Env env)
+        {
+            return env.GetEnvironmentValue<Headers>("owin.ResponseHeaders");
+        }
     }
 }
