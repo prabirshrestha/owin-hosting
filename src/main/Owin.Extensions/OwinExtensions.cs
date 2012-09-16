@@ -111,5 +111,10 @@ namespace Owin.Extensions
                     return string.Join(",", values);
             }
         }
+
+        public static Env SetRequestMethod(this Env env, string method)
+        {
+            return env.SetEnvironmentValue("owin.RequestMethod", method);
+        }
     }
 }
