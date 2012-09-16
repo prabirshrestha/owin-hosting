@@ -247,4 +247,12 @@ namespace Owin.Extensions
             return wsEnv.SetEnvironmentValue("websocket.CallCancelled", cancellationToken);
         }
     }
+
+    namespace Stream
+    {
+        public static class StreamExtensions
+        {
+
+        }
+    }
 }
