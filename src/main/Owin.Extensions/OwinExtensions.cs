@@ -269,6 +269,23 @@ namespace Owin.Extensions
             return app;
         }
 
+        public static AppFunc ToOwinApp(this IEnumerable<Func<AppFunc, AppFunc>> app)
+        {
+            return
+                env =>
+                {
+                    var enumerator = app.GetEnumerator();
+                    AppFunc next = null;
+                    next = env2 => enumerator.MoveNext() ? enumerator.Current(env3 => next(env3))(env2) : NoopTask;
+                    return next(env);
+                };
+        }
+
+        public static AppFunc ToOwinApp(this Func<AppFunc, AppFunc> app)
+        {
+            return env => app(env2 => NoopTask)(env);
+        }
+
     }
 
     namespace Stream
