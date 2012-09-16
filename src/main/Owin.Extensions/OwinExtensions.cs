@@ -158,5 +158,11 @@ namespace Owin.Extensions
             headers[name] = value;
             return headers;
         }
+
+        public static Headers SetHeader(this Headers headers, string name, string value)
+        {
+            headers[name] = new[] { value };
+            return headers;
+        }
     }
 }
