@@ -152,5 +152,11 @@ namespace Owin.Extensions
         {
             return env.SetEnvironmentValue("owin.ResponseStatusCode", statusCode);
         }
+
+        public static Headers SetHeader(this Headers headers, string name, string[] value)
+        {
+            headers[name] = value;
+            return headers;
+        }
     }
 }
