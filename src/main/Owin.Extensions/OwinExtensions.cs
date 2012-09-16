@@ -37,7 +37,6 @@ namespace Owin.Extensions
                 CancellationToken, // cancel
                 Task>;
 
-
     public static class OwinExtensions
     {
         public static T GetStartupValue<T>(this StartupEnv startup, string name, T defaultValue = default(T))
@@ -250,9 +249,20 @@ namespace Owin.Extensions
 
     namespace Stream
     {
+        using System.Text;
+
         public static class StreamExtensions
         {
+            public static void WriteString(this System.IO.Stream stream, string str, Encoding encoding)
+            {
+                var data = encoding.GetBytes(str);
+                stream.Write(data, 0, data.Length);
+            }
 
+            public static void WriteString(this System.IO.Stream stream, string str)
+            {
+                stream.WriteString(str, Encoding.UTF8);
+            }
         }
     }
 }
