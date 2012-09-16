@@ -29,5 +29,11 @@ namespace Owin.Extensions
             object value;
             return env.TryGetValue(name, out value) && value is T ? (T)value : defaultValue;
         }
+
+        public static Env SetEnvironmentValue(this Env env, string name, object value)
+        {
+            env[name] = value;
+            return env;
+        }
     }
 }
