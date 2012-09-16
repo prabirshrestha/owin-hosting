@@ -211,5 +211,10 @@ namespace Owin.Extensions
         {
             return wsEnv.GetEnvironmentValue<WebSocketReceiveAsync>("websocket.ReceiveAsyncFunc");
         }
+
+        public static WebSocketCloseAsync GetWebSocketCloseAsync(this WsEnv wsEnv)
+        {
+            return wsEnv.GetEnvironmentValue<WebSocketCloseAsync>("websocket.CloseAsyncFunc");
+        }
     }
 }
