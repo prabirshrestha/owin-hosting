@@ -50,5 +50,10 @@ namespace Owin.Extensions
         {
             return env.GetEnvironmentValue<string>("owin.RequestPathBase");
         }
+
+        public static string GetRequestPath(this Env env)
+        {
+            return env.GetEnvironmentValue<string>("owin.RequestPath");
+        }
     }
 }
