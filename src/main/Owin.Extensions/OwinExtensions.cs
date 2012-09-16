@@ -72,5 +72,10 @@ namespace Owin.Extensions
         {
             return env.GetEnvironmentValue<string>("owin.CallCancelled");
         }
+
+        public static Headers GetRequestHeaders(this Env env)
+        {
+            return env.GetEnvironmentValue<Headers>("owin.RequestHeaders");
+        }
     }
 }
