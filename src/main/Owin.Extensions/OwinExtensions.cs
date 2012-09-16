@@ -87,5 +87,11 @@ namespace Owin.Extensions
         {
             return env.GetEnvironmentValue<System.IO.Stream>("owin.ResponseBody");
         }
+
+        public static string[] GetHeaderValues(this Headers headers, string name, string[] defaultValue = null)
+        {
+            string[] values;
+            return headers.TryGetValue(name, out values) ? values : defaultValue;
+        }
     }
 }
