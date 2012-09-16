@@ -12,5 +12,10 @@ namespace Owin.Extensions
 
     public static class OwinExtensions
     {
+        public static T GetStartupValue<T>(this StartupEnv startup, string name, T defaultValue = default(T))
+        {
+            object value;
+            return startup.TryGetValue(name, out value) && value is T ? (T)value : defaultValue;
+        }
     }
 }
