@@ -147,5 +147,10 @@ namespace Owin.Extensions
         {
             return env.SetEnvironmentValue("owin.CallCancelled", cancellationToken);
         }
+
+        public static Env SetResponseStatusCode(this Env env, int statusCode)
+        {
+            return env.SetEnvironmentValue("owin.ResponseStatusCode", statusCode);
+        }
     }
 }
