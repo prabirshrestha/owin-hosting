@@ -60,5 +60,10 @@ namespace Owin.Extensions
         {
             return env.GetEnvironmentValue<string>("owin.RequestQueryString");
         }
+
+        public static System.IO.Stream GetRequestBody(this Env env)
+        {
+            return env.GetEnvironmentValue<System.IO.Stream>("owin.RequestBody");
+        }
     }
 }
