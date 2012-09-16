@@ -17,5 +17,11 @@ namespace Owin.Extensions
             object value;
             return startup.TryGetValue(name, out value) && value is T ? (T)value : defaultValue;
         }
+
+        public static T GetEnvironmentValue<T>(this Env env, string name, T defaultValue = default(T))
+        {
+            object value;
+            return env.TryGetValue(name, out value) && value is T ? (T)value : defaultValue;
+        }
     }
 }
