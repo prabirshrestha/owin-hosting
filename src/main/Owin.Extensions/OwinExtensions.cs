@@ -65,5 +65,10 @@ namespace Owin.Extensions
         {
             return env.GetEnvironmentValue<System.IO.Stream>("owin.RequestBody");
         }
+
+        public static string GetCallCancelled(this Env env)
+        {
+            return env.GetEnvironmentValue<string>("owin.CallCancelled");
+        }
     }
 }
