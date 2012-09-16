@@ -221,5 +221,10 @@ namespace Owin.Extensions
         {
             return wsEnv.GetEnvironmentValue<CancellationToken>("websocket.CallCancelled");
         }
+
+        public static WsEnv SetWebSocketVersion(this WsEnv wsEnv, string version)
+        {
+            return wsEnv.SetEnvironmentValue("websocket.Version", version);
+        }
     }
 }
