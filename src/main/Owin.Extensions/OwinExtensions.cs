@@ -18,6 +18,12 @@ namespace Owin.Extensions
             return startup.TryGetValue(name, out value) && value is T ? (T)value : defaultValue;
         }
 
+        public static StartupEnv SetStartupValue(this StartupEnv startup, string name, object value)
+        {
+            startup[name] = value;
+            return startup;
+        }
+
         public static T GetEnvironmentValue<T>(this Env env, string name, T defaultValue = default(T))
         {
             object value;
