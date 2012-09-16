@@ -39,6 +39,15 @@ namespace Owin.Extensions
 
     public static class OwinExtensions
     {
+        public static readonly Task NoopTask;
+
+        static OwinExtensions()
+        {
+            var tcs = new TaskCompletionSource<int>();
+            tcs.TrySetResult(0);
+            NoopTask = tcs.Task;
+        }
+
         public static T GetStartupValue<T>(this StartupEnv startup, string name, T defaultValue = default(T))
         {
             object value;
@@ -259,6 +268,7 @@ namespace Owin.Extensions
             app.Add(next => env => condition(env) ? middleware(next)(env) : next(env));
             return app;
         }
+
     }
 
     namespace Stream
