@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Owin.Extensions
@@ -140,6 +141,11 @@ namespace Owin.Extensions
         public static Env SetRequestBody(this Env env, System.IO.Stream stream)
         {
             return env.SetEnvironmentValue("owin.RequestBody", stream);
+        }
+
+        public static Env SetCallCancelled(this Env env, CancellationToken cancellationToken)
+        {
+            return env.SetEnvironmentValue("owin.CallCancelled", cancellationToken);
         }
     }
 }
