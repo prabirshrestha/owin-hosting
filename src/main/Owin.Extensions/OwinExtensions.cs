@@ -93,5 +93,23 @@ namespace Owin.Extensions
             string[] values;
             return headers.TryGetValue(name, out values) ? values : defaultValue;
         }
+
+        public static string GetOwinHeaderValue(this Headers headers, string name)
+        {
+            var values = headers.GetHeaderValues(name);
+
+            if (values == null)
+                return null;
+
+            switch (values.Length)
+            {
+                case 0:
+                    return string.Empty;
+                case 1:
+                    return values[0];
+                default:
+                    return string.Join(",", values);
+            }
+        }
     }
 }
