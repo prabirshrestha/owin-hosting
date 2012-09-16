@@ -263,6 +263,11 @@ namespace Owin.Extensions
             {
                 stream.WriteString(str, Encoding.UTF8);
             }
+
+            private static Task WriteAsync(this  System.IO.Stream stream, byte[] data, int offset, int count, object state)
+            {
+                return Task.Factory.FromAsync(stream.BeginWrite, stream.EndWrite, data, offset, count, state);
+            }
         }
     }
 }
