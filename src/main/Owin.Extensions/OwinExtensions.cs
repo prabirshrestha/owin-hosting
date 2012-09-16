@@ -171,5 +171,10 @@ namespace Owin.Extensions
                 headers.Remove(name);
             return headers;
         }
+
+        public static string GetWebSocketVersion(this WsEnv wsEnv)
+        {
+            return wsEnv.GetEnvironmentValue<string>("websocket.Version");
+        }
     }
 }
