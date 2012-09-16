@@ -6,9 +6,11 @@ namespace Owin.Extensions
 {
     using AppFunc = Func<IDictionary<string, object>, Task>;
 
-    using StartupEnv = System.Collections.Generic.IDictionary<string, object>;
-    using Env = System.Collections.Generic.IDictionary<string, object>;
-    using WsEnv = System.Collections.Generic.IDictionary<string, object>;
+    using StartupEnv = IDictionary<string, object>;
+    using Env = IDictionary<string, object>;
+    using WsEnv = IDictionary<string, object>;
+
+    using Headers = IDictionary<string, string[]>;
 
     public static class OwinExtensions
     {
