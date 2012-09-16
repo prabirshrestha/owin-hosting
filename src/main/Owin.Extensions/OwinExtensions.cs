@@ -264,6 +264,18 @@ namespace Owin.Extensions
                 stream.WriteString(str, Encoding.UTF8);
             }
 
+            public static Task WriteStringAsync(this System.IO.Stream stream, string str, Encoding encoding)
+            {
+                var data = encoding.GetBytes(str);
+                return stream.WriteAsync(data, 0, data.Length, null);
+            }
+
+            public static Task WriteStringAsync(this System.IO.Stream stream, string str)
+            {
+                var data = Encoding.UTF8.GetBytes(str);
+                return stream.WriteAsync(data, 0, data.Length, null);
+            }
+
             private static Task WriteAsync(this  System.IO.Stream stream, byte[] data, int offset, int count, object state)
             {
                 return Task.Factory.FromAsync(stream.BeginWrite, stream.EndWrite, data, offset, count, state);
