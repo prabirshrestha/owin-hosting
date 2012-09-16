@@ -13,6 +13,31 @@ namespace Owin.Extensions
 
     using Headers = IDictionary<string, string[]>;
 
+    using WebSocketCloseAsync = System.Func<
+                   int, // closeStatus
+                   string, // closeDescription
+                   CancellationToken, // cancel
+                   Task>; // closeStatusDescription
+
+    using WebSocketReceiveAsync = System.Func<
+                ArraySegment<byte>, // data
+                CancellationToken, // cancel
+                Task<
+                    Tuple< // WebSocketReceiveTuple
+                        int, // messageType
+                        bool, // endOfMessage
+                        int?, // count
+                        int?, // closeStatus
+                        string>>>; // closeStatusDescription
+
+    using WebSocketSendAsync = System.Func<
+                ArraySegment<byte>, // data
+                int, // message type
+                bool, // end of message
+                CancellationToken, // cancel
+                Task>;
+
+
     public static class OwinExtensions
     {
         public static T GetStartupValue<T>(this StartupEnv startup, string name, T defaultValue = default(T))
